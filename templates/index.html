@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <!-- 引入css文件,css都是静态,一般不会修改,所以单独放一个文件 -->
+
+    <link rel="stylesheet" href="../static/css/index.css">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.easyfader.min.js"></script>
+    <script src="../static/js/index.js"></script>
+    
+    <!-- <script src="update.php?id=1"></script> -->
+    <!-- <script>
+        $(function() {
+            $.get('update.php?id=1',{r:Math.random()});
+            //当然$.post()、$.ajax()等都可以咯。
+            //然后要记得加一个随机数，因为如果不加的话，有的浏览器会认为是同一个请求，然后不请求。
+        });
+        </script> -->
+</head>
+<body>
+    <!-- 页眉 -->
+    <header>
+        <!-- 页眉里面的统称导航 -->
+        <!-- nav导航栏 -->
+        <nav>
+            <!-- logo -->
+            <!-- 超链接不确定导航到哪里,先以#代替 -->
+            <h1 id="logo"><a href="#">个人博客</a></h1>
+            <ul class="nav_list">
+                <li><a href="#">网站首页</a></li>
+                <li><a href="#">文章列表</a></li>
+                <li><a href="#">我的相册</a></li>
+                <li><a href="#">留言</a></li>
+                <li><a href="#">关于我</a></li>
+                <li><a href="#">发表博客</a></li> 
+            </ul>
+            <div class="user_btn">
+                 <!-- 登录和注册点击后页面可能会跳转,考虑是超链接 --> 
+                <a id="login" href="#">登录</a> 
+                <a id="register" href="#">注册</a>
+             </div> 
+        </nav>
+    </header>
+    <!-- 页面主体 -->
+<!-- width: 1140px,水平居中 -->
+    <!-- 注意,页面主体和nav等宽 -->
+    <!-- banner占父元素100%宽度,fader占2/3宽度 -->
+    <!-- banner是一个div元素,加浮动和其他元素并排显示 -->
+    <!-- img占父元素100%宽高 -->
+    <!-- .img_info 字体大小26px,字体颜色白色,北京颜色半透明 rgba -->
+    <!-- .img_info 绝对定位,距离父容器下方12%-->
+    <main>
+        <div>
+            <!-- 左半部分图片 -->
+            <div class="banner">
+                <!-- 放图片,图片可能被点击,所以写在超链接里面 -->
+                <ul id="fader" class="fader">
+
+
+             <!-- js重写,拼接到页面显示 -->
+
+                    <!-- <li class="slide"> -->
+                    <!--左侧图片  -->
+                        <!-- <a href="#"> -->
+                            <!-- <img src="../static/images/banner01.jpg" alt=""> -->
+                            <!-- <span class="img_info">爬虫</span> -->
+
+                            <!-- <img src="../static/images/banner02.jpg" alt=""> -->
+                            <!-- <img src="../static/images/banner03.jpg" alt=""> -->
+                        <!-- </a> -->
+                    <!-- </li> -->
+
+
+
+
+                    <!-- 给轮播图添加切换的效果 -->
+    
+                    <!-- 表示左右尖括号,注意规范 -->
+                    <!-- 刚开始时,看不到,定位的元素会盖在普通元素上方 -->
+    
+                    <!-- 左右大于号小于号 -->
+                    <!-- <div class="page prev">&lt;</div>
+                    <div class="page next">&gt;</div> -->
+    
+
+
+            <!-- js重写,拼接到页面显示 -->
+
+                    <!-- 轮播图转专用符号左右箭头 -->
+                    <!-- <li class="fader_controls"> -->
+                        <!-- <div class="page prev">&lsaquo;</div> -->
+                        <!-- <div class="page next">&rsaquo;</div> -->
+    
+                        <!-- 小圆点 -->
+                        <!-- <ul class="pager_list"> -->
+                            <!-- <li></li> -->
+                        <!-- </ul> -->
+                    <!-- </li> -->
+    
+    
+                </ul>
+            </div>
+    
+            <!-- 右半部分图片 -->
+            <ul class="topic">
+            <!--和轮播图并排显示  -->
+                <li class="list1">
+                    <a href="#">
+                        <i>
+                            <img src="../static/images/toppic01.jpg" alt="">
+                        </i>
+                        <!-- <img src="../static/images/toppic01.jpg" alt=""> -->
+                        <div >linux 升级asfkhjdsafkas</div>
+                        <span>linux</span>
+                    </a>
+                </li>
+                <li class="list2">
+                    <a href="#">
+                        <i>
+                            <img src="../static/images/toppic02.jpg" alt="">
+                        </i>
+                        <!-- <img src="../static/images/toppic02.jpg" alt=""> -->
+                        <div >python 编程afdaslhfkjalsjf</div>
+                        <span>python</span>
+                    </a>
+                </li>
+    
+    
+            </ul>
+        </div>
+        
+        <!-- 与上方元素隔开,清除上方元素浮动 -->
+        <div class="blank">======</div>
+        <div id="blogsbox" class="blogsbox">
+
+            <!-- 每一条博客 -->
+<!--            <div class="blogs">-->
+<!--                &lt;!&ndash; 标题可能被点击 &ndash;&gt;-->
+<!--                <h3 class="blogtitle">-->
+<!--                    <a href="#">python在人工智能中的优势</a>-->
+<!--                </h3>-->
+<!--                &lt;!&ndash; 图片 &ndash;&gt;-->
+<!--                <span class="blogpic">-->
+<!--                    &lt;!&ndash; 图片也可能被点击 &ndash;&gt;-->
+<!--                    <a href="#" >-->
+<!--                        <img src="../static/images/b.jpg" alt="">-->
+<!--                    </a>-->
+<!--                </span>-->
+<!--                    &lt;!&ndash; 博客文本 &ndash;&gt;-->
+<!--                <p class="blogtext">-->
+<!--                    hello Hannah how are you-->
+<!--                </p>-->
+<!--                &lt;!&ndash; 信息列表 &ndash;&gt;-->
+<!--                <div class="blogsinfo">-->
+<!--                    <ul>-->
+<!--                        <li class="author">-->
+<!--                            <a href="#">harry</a>-->
+<!--                        </li>-->
+<!--                        <li class="lmname">-->
+<!--                            <a href="#">学无止境</a>-->
+<!--                        </li>-->
+<!--                        <li class="timer" >-->
+<!--                            &lt;!&ndash; <time>13:14</time> &ndash;&gt;-->
+<!--                            <span>2020-9-17</span>-->
+<!--                        </li>-->
+<!--                        <li class="view">-->
+<!--                            <span>2323323</span>已阅读-->
+<!--                        </li>-->
+<!--                        <li class="like">-->
+<!--                            <span>8978790</span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                -->
+<!--            </div>-->
+
+        </div>
+
+
+
+        
+    </main>
+    <!-- 页脚 -->
+    <footer>
+        <div>
+            designed by
+            <a href="#">Harry</a>
+            <a href="#">备案号XXXXXX-1</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,580 @@
+/* 清除页面默认样式 */
+body,h1,h2,h3,h4,h5,h6,ul,ol,li{
+    padding: 0;
+    margin: 0;
+}
+ul,ol{
+    /* 清除默认列表样式 */
+    list-style: none;
+}
+/* 超链接以及鼠标移入上的超链接 */
+/* 装饰线取值为none,取消下划线 */
+a,a:hover{
+    text-decoration: none;
+}
+
+
+/* ========================页眉====================== */
+header{
+    background-color: #555;
+    height: 80px;
+    /* 宽度占据整个浏览器头部 100% */
+    width: 100%;
+    /* position: absolute; */
+
+    /* 将页眉固定再页面最上方 */
+    /* 固定的定位会脱离文档流 */
+    /* 图片是后定位的,后定位的一定会盖在先定位的上方 */
+    position: fixed;
+    /* 紧贴页面最上方 */
+    top: 0px;
+    /* 设置很高层极,可以盖住所有元素 */
+    z-index: 999;
+    
+}
+
+/* 导航栏 */
+nav{
+    /* background-color: crimson; */
+    width: 1140px;
+    height: 80px;
+    /* 块元素在父元素中水平居中 */
+    margin: 0 auto;
+    line-height: 80px;
+    /* 为后代元素做定位 */
+    position: relative;
+}
+#logo{
+    float: left;
+    
+    height: 90px;
+}
+#logo>a{
+    color: #c1edf2;
+    /* position: relative; */
+    float: left;
+    font-size: 26px;  
+}
+.nav_list>li{
+    
+    float: left;
+    margin-left: 80px;
+    
+}
+
+/* li{
+    float: left;
+    margin-left: 80px;
+} */
+.nav_list li>a{
+    color: #0fbebe;
+}
+/* 鼠标移入时改变样式 */
+.nav_list li a:hover{
+    color: #fff;
+}
+
+/* 方法1,先设置外边距,然后设置元素之间距离 */
+/*.user_btn{*/
+/*    position: absolute;*/
+/*    !* float: right; *!*/
+/*    right: 25px;*/
+/*    !* margin-left: 20px; *!*/
+/*}*/
+/*.user_btn>a{*/
+/*    margin-right: 10px;*/
+/*    color: #e5f2f2;*/
+/*}*/
+
+    /* 登录注册 */
+    /* 全部以nav父元素为参照物 */
+.user_btn a{
+    position: absolute;
+    color: #e5f2f2;
+}
+#login{
+    right:50px;
+}
+#register{
+    right:0;
+}
+
+
+
+
+
+
+
+
+/* 页面主体 */
+main{
+    
+    width: 1140px;
+    /* 块元素在父元素中居中 ,auto是左右auto*/
+    /* margin: 0 auto; 上下是0,左右auto */
+
+    /* 上100px 左右 auto 下0 */
+    margin: 100px auto 0;
+}
+
+
+/* 轮播图样式 */
+.banner{
+
+width: 66%;
+float: left;
+}
+/* 轮播图样式 */
+/* 设置为父元素 */
+.fader{
+    
+    /* 前面都没有设置高度,用内边距支撑容器 */
+    /* padding相当于轮播图的内容 ,页面就会有对应的高度*/
+    padding-top: 60%;
+    width: 100%;
+    position: relative;
+}
+
+.fader .slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    /* 堆叠次序 ,层级是1*/
+    z-index: 1;
+    /* 不透明度 1,不透明,能看得见*/
+    /* opacity: 1; */
+
+    /* 写js时设置全都看不见 */
+    opacity: 0;
+}
+
+.fader .slide img{
+    width: 100%;
+    height: 100%;
+
+    /* 让文字能够覆盖,不设置文字覆盖不上 */
+    display: block;
+
+}
+.img_info{
+    font-size: 26px;
+    color: #fff;
+    /* 半透明黑色背景 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 注意,文字写的是span内容有多少就有多宽 */
+    /* 脱离文档流就能设置宽度和高度 */
+    position: absolute;
+    bottom: 12%;
+    width: 100%;
+    /* 注意,内边距会算在宽度里面,右边会凸出40px */
+    padding-left: 40px;
+    /* 宽度指定时包含内边距和边框,解决右边凸出问题 */
+    box-sizing: border-box;
+}
+
+/* 前面已经设置了fader为父元素相对定位 */
+/* 先整体设置两个箭头的样式 */
+.fader .page{
+    /* 设置div的宽高 */
+width: 50px;
+height: 80px;
+/* 在div中居中 */
+text-align: center;
+color: #fff;
+/* 行高设置一样为了垂直居中? */
+line-height: 80px;
+/* 鼠标变成指针状态 */
+cursor: pointer;
+/* 其他元素都做了定位,这里不做定位会被盖住 */
+position: absolute;
+top: 50%;
+font-size: 100px;
+/* 让箭头能够居中,到50%后在向上移动本身高度的一半 */
+margin-top: -40px;
+/* 图片层级设置是1,层级设置比图片高,再图片上方显示 */
+z-index: 10;
+opacity: 0;
+
+transition: all 1s;
+}
+
+.fader .prev{
+    left: 50px;
+}
+/* 将向右的箭头移到右边 */
+.fader .next{
+    right: 50px;
+}
+
+.banner:hover .fader .prev{
+    left: 0;
+    opacity: 0.5;
+    /* 过度效果写在父元素里面,只要有改动就过度 */
+    /* transition: all 1s; */
+}
+
+/* 鼠标划过箭头出现 */
+.banner:hover .fader .next{
+    right : 0;
+    opacity: 0.5;
+    /* transition: all 1s; */
+}
+
+/* 小圆点的父元素 */
+.fader .pager_list{
+   
+    width: 100%;
+    height: 40px;
+    /* 垂直居中 */
+    line-height: 40px;
+    bottom: 0;
+    /* margin: 0 auto; */
+    text-align: center;
+    position: absolute;
+    /* 上面箭头调了层级,这里也要调节,和图片层级一样 */
+    z-index: 10;
+    
+}
+
+.fader .pager_list li{
+    /* 所有的li都是并排显示的 */
+    /* 块元素并排显示 */
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color:#fff;
+    text-align: center;
+
+    /* 有很多小圆点之间留点距离,上下为0左右7px */
+    margin: 0 7px;
+    /* 鼠标移入变可点击 */
+    cursor: pointer;
+    opacity: 0.5;
+    /* z-index: 20; */
+
+
+    /* 框架添加的li样式有数字data-target  */
+    /* 框架的默认样式里面的额数字,缩进很远,屏幕看不到 */
+    text-indent: -9999px;
+
+}
+
+
+.fader .pager_list li:hover{
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+
+
+
+
+
+/* 鼠标移入时图片变亮,思路在父元素加一个半透明 蒙版,鼠标移入变成透明*/
+/* 轮播图右侧topic样式 */
+.topic{
+    width: 32%;
+    float: right;
+    /* position: relative; */
+}
+
+
+/* li是右边每一个小图片 */
+.topic li {
+    
+    width: 100%;
+    height: 216px;
+    
+    /* display: block; */
+
+    /* 相对li做定位 */
+    position: relative;
+    background-color: rgb(36, 35, 35);
+    
+    
+}
+
+
+
+/* 为图片增加遮罩层 */
+.topic li i{
+    /* i标签是行内元素,行内元素要里面的图片宽度默认和父元素一直,高度由内容(图片)填充 */
+    /* 设置成块元素后,能直接包住图片,并设置宽高 */
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+    /* 先把图片的不透明度设置成0.7,这样就能看到后面的父元素li深色背景 */
+    /* 然后鼠标划过时,再将不透明度调成1,就看不到后面的父元素li深色背景 */
+    opacity: 0.7;
+    
+}
+
+.topic li:hover i{
+    /* display: none; */
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+
+
+
+
+
+
+/* 设置图片属性,后代选择器,中间a没写 */
+/* img是行内元素,和文字堆叠在一起会默认有对齐效果 */
+.topic li img{
+    width: 100%;
+    height: 216px;
+/* 文字阴影部分演示与图片交界下有小边,将图片设置为行内快解决 */
+/* 文字黑色背景没有完全靠在下方 */
+/* 变成块元素更好和相对定位的元素对齐 */
+    display: block;
+
+}
+
+
+/* 文字部分 */
+.topic li div{
+    
+    font-size: 16px;
+    background-color:rgba(0, 0, 0, 0.4);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+
+    /* 让元素自动填充整个父元素 */
+    left: 0;
+    right: 0;
+    /* 调节内边距让字体看着不直接填满字体背景 */
+    padding: 10px 0 10px 20px;
+    
+}
+
+/* 标签 */
+.topic li span{
+    /* float: right; */
+    position: absolute;
+
+    /* 距离上方和左边距离 */
+    top: 20px;
+    left: 20px;
+    /* 设置圆角 */
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 10px;
+}
+
+
+/* 找最后一个li设置 */
+.topic li:last-child{
+    margin-top: 16px;
+    /* margin-bottom: 0px; */
+}
+
+
+/* topic 占父元素32%,中间留距离 */
+/* 右浮动 */
+/* li定位,相对定位,宽100% */
+/* 高度216px */
+ 
+/*绝对定位 div文字,字体大小16Px 字体粗细*/
+/* span绝对定位距离父元素坐上20px 圆角*/
+
+
+
+
+
+
+
+.blank{
+    /* 清除左右浮动 */
+    clear: both;
+    height: 20px;
+}
+
+
+/* blog的背景是白色的,调节背景色与blog区分开 */
+body{
+    background-color: #f2f2f0;
+}
+
+
+
+
+/* 最外层容器 */
+.blogsbox{
+    width: 100%;
+    float: left;
+}
+
+.blogs{
+    /* 给父容器加上下左右的内边距,不至于内容靠的离边很近 */
+    padding: 20px;
+    /* 单条博客设置的背景 */
+    background-color: #fff;
+    /* 这是第一条博客,加上一个向下的外边距,没调博客之间保持距离 */
+    margin-bottom: 20px;
+    /* position:relative ; */
+
+    /* 子元素浮动,背景没有撑住,处理子元素浮动问题 */
+    overflow: hidden;
+}
+
+.blogs .blogtitle{
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.blogs .blogtitle a{
+    color: #555;
+    /* font-size: 30px; */ 
+}
+
+/* 鼠标移入标题时博客标题字体颜色改变 */
+.blogs .blogtitle:hover a{
+    color: #337ab7;
+    transition: all 0.2s;
+}
+
+/* blogpic */
+    /* 再容器中靠左,左浮动? */
+    /* 宽30%,高最大高度170px */
+    /* 由外边距20px,溢出部分隐藏 */
+
+/* img   宽100% 过度0.6s */
+
+.blogpic{
+    float: left;
+    /* position: absolute; */
+    width: 30%;
+    max-height: 170px;
+    margin-right: 20px;
+    /* 溢出部分隐藏 */
+    overflow: hidden;
+   
+}
+
+
+.blogpic:hover img{
+    /* 鼠标放上 放大1.1倍 */
+    transform: scale(1.1);
+    /* width: 100%; */
+}
+
+
+.blogpic img{
+    /* display: inline-block; */
+    
+    width: 100%;
+    transition: 0.6s;
+    /* height: 150px; */
+    /* margin: 15px ; */
+    /* margin-bottom: 0px; */
+}
+
+.blogtext{
+    /* float: right; */
+    /* display: inline-block; */
+    /* height: 0%; */
+    margin-top: 20px;
+    font-size: 14px;
+    color: #566573;
+}
+.blogsinfo{
+    margin-top: 30px;
+}
+
+.blogsinfo li{
+    float: left;
+    /* display: inline-block; */
+    font-size: 12px;
+    color: #748594;
+    /* 把小图标位置让出来 */
+    padding-left: 20px;
+    /* 调整和其他li的距离 */
+    margin-right:15px;
+    height: 18px;
+    /* 让文字垂直居中 */
+    line-height: 18px;
+}
+
+
+.blogsinfo li a{
+    color: #748594;
+}
+
+.blogsinfo li a:hover{
+    color: #000;
+}
+
+
+
+.blogsinfo li{
+   
+    background-image: url("../images/auicon.jpg") ;
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+    /* background-position: 0 3px; */
+    /* width: 20px;
+    height: 20px; */
+
+}
+
+.blogsinfo .lmname{
+    /* background-position: 0 -24px; */
+    background-position-y: -24px;
+}
+
+
+.blogsinfo .timer{
+    /* background-position: 0 -45px; */
+    background-position-y: -45px;
+}
+
+.blogsinfo .view{
+    /* background-position: 0 -65px; */
+    background-position-y: -65px;
+}
+
+.blogsinfo .like{
+    /* background-position: 0 -85px; */
+    background-position-y: -85px;
+}
+
+
+
+
+
+
+
+
+/* 页脚 */
+footer{
+    text-align: center;
+    width: 100%;
+    background-color: #333;
+    /* 字体颜色 */
+    color: #a5a4a4;
+    /* 设置内边距,上下一样就是垂直居中 */
+    padding: 20px 0;
+    /* 清除浮动 */
+    clear: both;
+}
+
+
+footer a{
+    color: #a5a4a4;
+}
+footer a:hover{
+    color: #c1edf2;
+}
+
+
